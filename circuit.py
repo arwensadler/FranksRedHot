@@ -1,6 +1,6 @@
 '''
-Component Class for Frank's Red Hot SPICE Software
+Main file for Frank's Red Hot SPICE Software
 Author(s): @awenstrup, @aditya-sudhakar, @MellieZito, @arwensadler
 
-Function: Main Window for Pick-and-Place
+Function: Run the program
 '''
