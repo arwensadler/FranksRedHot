@@ -7,19 +7,11 @@ Function: Main Window for Pick-and-Place
 
 import pygame
 
-
-background_color = (255,255,255)
-(width, height) = (1420, 1080)
-
-
-screen = pygame.display.set_mode((width, height))
-pygame.display.set_caption('Test Window')
-screen.fill(background_color)
-
-
-running = True
-while running:
-
-    for event in pygame.event.get():
-        if event.type == pygame.QUIT:
-            running = False
+class PyGameWindowView:
+    def __init__(self, model, size):
+        self.model = model
+        self.screen = pygame.display.set_mode(size)
+    def draw(self):
+        self.screen.fill(pygame.Color(255,255,255))
+        pygame.display.set_caption('Test Window')
+        #will draw components when we add those
