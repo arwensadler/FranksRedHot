@@ -35,5 +35,5 @@ def start_software(size):
     pygame.quit()
 
 if __name__ == '__main__':
-    size = (640, 480)
+    size = (1420, 1080)
     start_software(size)
