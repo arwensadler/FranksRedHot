@@ -17,8 +17,8 @@ def start_software(size):
     """
     pygame.init()
 
-    model = CircuitModel(size)
-    #print(model)
+    model = CircuitModel() #took out size
+    print(model)
     view = PyGameWindowView(model, size)
     #controller = Controller(model)
 
