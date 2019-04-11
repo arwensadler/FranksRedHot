@@ -8,26 +8,26 @@ import time
 import pygame
 from model import CircuitModel
 from view import PyGameWindowView
-from controller.mouse_controller import Controller
+#from controller.mouse_controller import Controller
 
 
 def start_software(size):
     """
-    Given screen 'size' as (x,y) tuple, start BrickBreaker game
+    Given screen 'size' as (x,y) tuple, start
     """
     pygame.init()
 
     model = CircuitModel(size)
-    print(model)
+    #print(model)
     view = PyGameWindowView(model, size)
-    controller = Controller(model)
+    #controller = Controller(model)
 
     running = True
     while running:
         for event in pygame.event.get():
-            if event.type == pygame.locals.QUIT:
+            if event.type == pygame.QUIT:
                 running = False
-            controller.handle_event(event)
+            #controller.handle_event(event)
         model.update()
         view.draw()
         time.sleep(.001)
