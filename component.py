@@ -19,3 +19,6 @@ class Component(pg.sprite.Sprite):
         #image.set_colorkey(colorkey, RLEACCEL)
 
         return image, image.get_rect()
+
+    def add(self, model):
+        pass

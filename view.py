@@ -6,18 +6,27 @@ Function: Main Window for Pick-and-Place
 '''
 
 import pygame as pg
-from model import CircuitModel as model
 
 class PyGameWindowView:
-    def __init__(self, model, size):
-        self.model = model
+    def __init__(self, size):
         self.screen = pg.display.set_mode(size)
         self.grid_image = pg.image.load("./images/grid.png")
-        self.grid_image = pg.transform.scale(self.grid_image, (1420, 1080))
+        self.grid_image = pg.transform.scale(self.grid_image, (1440, 1080))
+
+        self.controller = None #will be updated in circuit.py
+        self.model = None
     def draw(self):
+        #screen = self.screen
         self.screen.fill(pg.Color(255,255,255))
         pg.display.set_caption('Test Window')
-        screen = self.screen
-        screen.blit(self.grid_image, (0,0))
+        self.screen.blit(self.grid_image, (0,0))
         self.model.components.draw(self.screen)
+        #HARD-CODED, FIX LATER: being_dragged should depend on whether the mouse has been clicked over a component
+        being_dragged = True
+        if being_dragged == True:
+            mouse_pos = self.controller.mouse_pos #GET MOUSE_POS FROM CONTROLLER.PY
+            self.screen.blit(pg.image.load('./images/resistor.png'), mouse_pos) #usually get image from model
+
+        if self.model.add:
+            self.screen.blit(self.model.add_image, self.model.add_pos)
         pg.display.flip()

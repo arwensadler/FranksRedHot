@@ -8,15 +8,24 @@ from resistor import Resistor
 import pygame as pg
 
 class CircuitModel:
-    def __init__(self): #took out size
+    def __init__(self):
         self.components = pg.sprite.Group()
         self.r = Resistor(100, 150, 100, 0, 100, 50)
         self.components.add(self.r)
+
+        self.add = False
+        self.add_image = pg.image.load('./images/resistor.png')
+
+        self.view = None
+        self.controller = None
+
         #self.width = size[0]
         #self.height = size[1]
         #have dictionary of components
     def update(self):
         """ Update the software state """
+        pass
         #update components
+
     def __str__(self):
         return self.r.__str__()
