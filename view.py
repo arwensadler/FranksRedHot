@@ -22,10 +22,9 @@ class PyGameWindowView:
         self.screen.blit(self.grid_image, (0,0))
         self.model.components.draw(self.screen)
         #HARD-CODED, FIX LATER: being_dragged should depend on whether the mouse has been clicked over a component
-        being_dragged = True
-        if being_dragged == True:
+        if self.controller.mouse_pressed == False:
             mouse_pos = self.controller.mouse_pos #GET MOUSE_POS FROM CONTROLLER.PY
-            self.screen.blit(pg.image.load('./images/resistor.png'), mouse_pos) #usually get image from model
+            self.screen.blit(self.model.add_image, mouse_pos) #usually get image from model
 
         if self.model.add:
             self.screen.blit(self.model.add_image, self.model.add_pos)

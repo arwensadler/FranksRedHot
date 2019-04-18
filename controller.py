@@ -5,7 +5,8 @@ Author(s): @awenstrup, @aditya-sudhakar, @MellieZito, @arwensadler
 Function: Takes controller input
 '''
 
-import pygame as pg
+import pygame
+from pygame.locals import *
 
 class Controller:
   def __init__(self):
@@ -14,17 +15,20 @@ class Controller:
       self.model = None #will be updated in circuit.py
       self.view = None
 
+      self.mouse_pressed = False
   def moving_component(image):
       """ Blits an image of the component where the mouse is while the
       component is being dragged """
-      mouse_pressed = False
-      while (not mouse_pressed):
-          self.view.screen.blit(image, pg.mouse.get_pos())
-          if pg.mouse.get_pressed():
-              mouse_pressed = True
+
+      if mouse_pressed:
+          self.view.screen.blit(image, pygame.mouse.get_pos())
+  def handle_event(self, event):
+      if pygame.mouse.get_pressed()[0]:
+          print('got pressed')
+          self.mouse_pressed = True
 
   def update(self):
-      self.mouse_pos = pg.mouse.get_pos()
+      self.mouse_pos = pygame.mouse.get_pos()
 
 
   # def handle_event(self, event):

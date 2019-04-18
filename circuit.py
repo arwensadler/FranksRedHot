@@ -37,19 +37,15 @@ def start_software(size):
     #runs software
     running = True
 
-    if running: print("begin while")
     while running:
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 running = False
-        print('running')
+            controller.handle_event(event)
+
         model.update()
-        print('model updated')
         view.draw()
-        print('view drawn')
         controller.update()
-        print('controller updated')
-        #time.sleep(.001)
 
 
     pygame.quit()
