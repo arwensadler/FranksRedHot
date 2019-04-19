@@ -8,15 +8,17 @@ from resistor import Resistor
 import pygame as pg
 
 class CircuitModel:
+    """ Stores the components """
     def __init__(self):
         self.components = pg.sprite.Group()
-        self.r = Resistor(100, 150, 100, 0, 100, 50)
-        self.components.add(self.r)
 
-        #self.add = False
+        self.add = False #instead of boolean, store what component got clicked?
         # TO DO: Make so that it picks which image to load based on which
         # component was clicked
         self.add_image = pg.image.load('./images/resistor.png')
+
+        # Adds the sideboard components to click on
+        self.components.add(Resistor(100, 75, 60))
 
         self.view = None
         self.controller = None
@@ -29,7 +31,7 @@ class CircuitModel:
     def update(self):
         """ Update the software state """
         pass
-        #update components
+        #update components, position of components
 
     def __str__(self):
         return self.r.__str__()
