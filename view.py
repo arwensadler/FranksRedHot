@@ -25,12 +25,15 @@ class PyGameWindowView:
         self.model.components.draw(self.screen)
         #HARD-CODED, FIX LATER: mouse_pressed should depend on whether the mouse
         #has been clicked over a component
-        if self.controller.mouse_pressed == False:
+        if self.controller.mouse_pressed == False: #blits component while its dragged
             mouse_pos = self.controller.mouse_pos #get mouse position from controller
             comp = self.model.comp_type
-            self.screen.blit(comp.image, (mouse_pos[0] - comp.rect.width/2, mouse_pos[1])) #blits comp
+            self.screen.blit(comp.image, (mouse_pos[0] - comp.rect.width/2,
+                                          mouse_pos[1] - comp.rect.height/2))
         else:
             mouse_pos = self.controller.mouse_pos
+            #HARD-CODED, FIX LATER: resistor is drawn when clicked, should be
+            #any component/get it from model
             self.model.components.add(Resistor(100, mouse_pos[0], mouse_pos[1]))
             self.controller.mouse_pressed = False
 
