@@ -16,7 +16,6 @@ class PyGameWindowView:
         self.controller = None #will be updated in circuit.py
         self.model = None
     def draw(self):
-        #screen = self.screen
         self.screen.fill(pg.Color(255,255,255))
         pg.display.set_caption('Test Window')
         self.screen.blit(self.grid_image, (0,0))
@@ -26,6 +25,6 @@ class PyGameWindowView:
             mouse_pos = self.controller.mouse_pos #GET MOUSE_POS FROM CONTROLLER.PY
             self.screen.blit(self.model.add_image, mouse_pos) #usually get image from model
 
-        if self.model.add:
-            self.screen.blit(self.model.add_image, self.model.add_pos)
+        # if self.model.add:
+        #     self.screen.blit(self.model.add_image, self.model.add_pos)
         pg.display.flip()

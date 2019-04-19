@@ -13,7 +13,7 @@ class CircuitModel:
         self.r = Resistor(100, 150, 100, 0, 100, 50)
         self.components.add(self.r)
 
-        self.add = False
+        #self.add = False
         # TO DO: Make so that it picks which image to load based on which
         # component was clicked
         self.add_image = pg.image.load('./images/resistor.png')
@@ -29,7 +29,6 @@ class CircuitModel:
     def update(self):
         """ Update the software state """
         pass
-
         #update components
 
     def __str__(self):
