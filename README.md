@@ -1,6 +1,6 @@
 # FranksRedHot
 
-###SPICE Software for Software Design Spring 2019
+### SPICE Software for Software Design Spring 2019
 
 ##Authors
 * Aditya Sudhakar @aditya-sudhakar
@@ -9,9 +9,9 @@
 * Mellie Zito @MellieZito
 
 
-##Description
+## Description
 
 
-####Version 0.1
+#### Version 0.1
 
 
