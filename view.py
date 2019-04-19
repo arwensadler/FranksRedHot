@@ -27,12 +27,11 @@ class PyGameWindowView:
         #has been clicked over a component
         if self.controller.mouse_pressed == False:
             mouse_pos = self.controller.mouse_pos #get mouse position from controller
-            self.screen.blit(self.model.add_image, mouse_pos) #get image of component from model
+            comp = self.model.comp_type
+            self.screen.blit(comp.image, (mouse_pos[0] - comp.rect.width/2, mouse_pos[1])) #blits comp
         else:
             mouse_pos = self.controller.mouse_pos
             self.model.components.add(Resistor(100, mouse_pos[0], mouse_pos[1]))
             self.controller.mouse_pressed = False
 
-        if self.model.add: #should be more about blitting image to screen once clicked
-            self.screen.blit(self.model.add_image, self.model.add_pos)
         pg.display.flip()

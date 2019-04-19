@@ -12,19 +12,17 @@ class CircuitModel:
     def __init__(self):
         self.components = pg.sprite.Group()
 
-        self.add = False #instead of boolean, store what component got clicked?
+        # Adds the sideboard components to click on
+        self.r = Resistor(100, 75, 60)
+        self.components.add(self.r)
+
         # TO DO: Make so that it picks which image to load based on which
         # component was clicked
-        self.add_image = pg.image.load('./images/resistor.png')
-
-        # Adds the sideboard components to click on
-        self.components.add(Resistor(100, 75, 60))
+        self.comp_type = self.r #component that is clicked
 
         self.view = None
         self.controller = None
 
-
-        self.being_dragged = True
         #self.width = size[0]
         #self.height = size[1]
         #have dictionary of components
