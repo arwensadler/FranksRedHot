@@ -22,5 +22,12 @@ class Controller:
         if pygame.mouse.get_pressed()[0]:
             self.mouse_pressed = True
 
+            x,y = event.pos
+            print(x,y)
+            for component in self.model.components:
+                if component.rect.collidepoint(x,y): #get type of component clicked
+                    print(component.type)
+                    self.model.comp_type = component.type #set type in model to that type
+
     def update(self):
         self.mouse_pos = pygame.mouse.get_pos()

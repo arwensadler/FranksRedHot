@@ -18,6 +18,7 @@ class Resistor(Component): #inherit from component
         self.y = y
         self.angle = angle
         self.name = 'resistor'
+        self.type = 'r'
         self.fieldValue = 'R*'
 
         self.image = pg.image.load('images/resistor.png')
@@ -25,4 +26,4 @@ class Resistor(Component): #inherit from component
 
         self.rect = self.image.get_rect(center=(x,y))
     def __str__(self):
-        return str(self.r)
+        return str(self.r) + " ohm " + self.name
