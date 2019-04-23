@@ -26,4 +26,4 @@ class Resistor(Component): #inherit from component
 
         self.rect = self.image.get_rect(center=(x,y))
     def __str__(self):
-        return str(self.r) + " ohm " + self.name
+        return str(self.r) + " ohm " + self.name + " at pos " + str(self.x) + ", " + str(self.y)
